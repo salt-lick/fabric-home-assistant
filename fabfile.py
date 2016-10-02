@@ -125,7 +125,6 @@ def install_syscore():
     sudo("aptitude install -y net-tools")
     sudo("aptitude install -y sudo")
     sudo("aptitude install -y libglib2.0-dev")
-    sudo("aptitude install -y cython3")
     sudo("aptitude install -y libudev-dev")
     sudo("aptitude install -y python3-sphinx")
     sudo("aptitude install -y python3-setuptools")
@@ -150,7 +149,7 @@ def setup_homeassistant_novenv():
 
 def setup_openzwave_novenv():
     """ Install python-openzwave """
-    sudo("pip3 install --upgrade cython", user="hass")
+    #sudo("pip3 install --upgrade cython", user="hass")
     with cd("/srv/hass/src"):
         sudo("git clone https://github.com/OpenZWave/python-openzwave.git", user="hass")
         with cd("python-openzwave"):
@@ -217,7 +216,7 @@ def setup_homeassistant():
 
 def setup_openzwave():
     """ Activate Virtualenv, Install python-openzwave"""
-    sudo("source /srv/hass/hass_venv/bin/activate && pip3 install --upgrade cython", user="hass")
+    sudo("source /srv/hass/hass_venv/bin/activate, user="hass")
     with cd("/srv/hass/src"):
         sudo("git clone --branch v0.3.1 https://github.com/OpenZWave/python-openzwave.git", user="hass")
         with cd("python-openzwave"):
